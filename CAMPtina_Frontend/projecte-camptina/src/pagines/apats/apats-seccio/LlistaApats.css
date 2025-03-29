@@ -8,9 +8,6 @@
     width: 80%;
     min-height: 70px;
 }
-.cn-section-llista-apats.plena {
-    height: auto;
-}
 
 .cn-article-nom-llista-apats {
     display: flex;
@@ -33,7 +30,7 @@
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    min-height: 70px;
+    min-height: 50px;
 }
 
 .cn-ul-llista-apats {
@@ -41,7 +38,18 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 70px;
+    height: 50px;
+}
+
+.cn-li-update-llista-apats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+    background: #111;
+    border-bottom-right-radius: 8px;
+    visibility: hidden;
 }
 
 .cn-li-id-llista-apats {
@@ -50,10 +58,12 @@
     align-items: center;
     padding: 5px;
     font-size: 0.8em;
-    width: 10%;
-    height: 50px;
+    width: 20%;
+    height: 100%;
     background: #222;
     border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    overflow: auto;
 }
 
 .cn-li-nom-llista-apats {
@@ -63,10 +73,11 @@
     padding: 5px;
     font-size: 0.8em;
     width: 20%;
-    height: 50px;
+    height: 100%;
     background: #333;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
+    overflow: auto;
 }
 
 .cn-li-categoria-llista-apats {
@@ -75,11 +86,12 @@
     align-items: center;
     padding: 5px;
     font-size: 0.8em;
-    width: 20%;
-    height: 50px;
+    width: 10%;
+    height: 100%;
     background: #444;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
+    overflow: auto;
 }
 
 .cn-li-descripcio-llista-apats {
@@ -88,22 +100,129 @@
     align-items: center;
     padding: 5px;
     font-size: 0.8em;
-    width: 40%;
-    height: 50px;
+    width: 35%;
+    height: 100%;
     background: #555;
+    border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
+    overflow: auto;
 }
 
-.cn-li-eliminar-llista-apats {
+.cn-li-delete-llista-apats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5%;
+    height: 100%;
+    background: #666;
+    border-bottom-left-radius: 8px;
+    visibility: hidden;
+}
+
+.cn-div-llista-apats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    min-height: 50px;
+}
+
+.cn-li-update-items-llista-apats {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 5px;
     font-size: 0.8em;
     width: 10%;
-    height: 50px;
-    background: #666;
+    height: 100%;
+    background: #258;
+    border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
+    cursor: pointer;
+}
+
+.cn-li-update-items-llista-apats:hover {
+    background: #b44;
+}
+
+.cn-li-update-items-llista-apats:active {
+    transform: scale(0.9);
+}
+
+.cn-li-1-llista-apats {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    font-size: 0.8em;
+    width: 20%;
+    height: 100%;
+    background: #f75;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.cn-li-2-llista-apats {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    font-size: 0.8em;
+    width: 20%;
+    height: 100%;
+    background: #e75;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.cn-li-3-llista-apats {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    font-size: 0.8em;
+    width: 10%;
+    height: 100%;
+    background: #d75;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.cn-li-4-llista-apats {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 5px;
+    font-size: 0.8em;
+    width: 35%;
+    height: 100%;
+    background: #c75;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.cn-li-delete-items-llista-apats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 0.8em;
+    width: 5%;
+    height: 100%;
+    background: #b44;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.cn-li-delete-items-llista-apats:hover {
+    background: #e11;
+    transform: rotate(15deg);
+}
+
+.cn-li-delete-items-llista-apats:active {
+    transform: scale(0.9);
 }
 
 .cn-bttn-finestra-llista-apats {
@@ -120,6 +239,7 @@
     cursor: pointer;
     margin: 4px;
     width: 38px;
+    height: 38px;
 }
 
 .cn-bttn-finestra-llista-apats:hover {
@@ -130,28 +250,197 @@
     transform: scale(0.9);
 }
 
-/* Nova columna per als botons (es pot millorar) */
-.cn-bttn-eliminar {
-    background: none;
+.content-icon {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+
+.filter-intern-llista-apats {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    gap: 2px;
+    margin: 4px;
+    width: 240px;
+    height: 38px;
+}
+
+.cn-bttn-filter-categoria-llista-apats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
-    padding: 5px;
+    border-top-left-radius: 4px;
+    background: #258;
     cursor: pointer;
-  }
-  
-  .cn-bttn-eliminar svg {
-    width: 24px; 
-    height: 24px;
-    stroke: #000; 
-    transition: stroke 0.3s ease;
-  }
-  
-  .cn-bttn-eliminar:hover svg {
-    stroke: #fff; 
-  }
+    width: 38px;
+    height: 100%;
+}
+
+.cn-bttn-filter-categoria-llista-apats:hover {
+    background: #b44;
+}
+
+.cn-bttn-filter-categoria-llista-apats:active {
+    transform: scale(0.9);
+}
+
+.cn-select-filter-categoria-llista-apats{
+    display: none;
+}
+
+/* UPDATE FORM A- */
+.cn-form-update-llista-apats {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.cn-form-div-inputs-update-llista-apats {
+    display: flex;
+    gap: 5%;
+    width: 100%;
+    height: 100px;
+}
+
+.cn-form-div-inputs-nom-update-llista-apats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    padding: 5px;
+    position: relative;
+}
+
+.className-input-nom-update-llista-apats {
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.cn-form-div-inputs-categoria-update-llista-apats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+    padding: 5px;
+    position: relative;
+}
+
+.className-select-categoria-update-llista-apats {
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: auto;
+}
+
+.cn-form-div-inputs-descripcio-update-llista-apats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    padding: 5px;
+    position: relative;
+}
+
+.className-txtarea-update-llista-apats {
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    resize: none;
+    overflow: auto;
+}
+
+.cn-span-update-llista-apats {
+    position: absolute;
+    top: 45%;
+    right: 2%;
+    background: #222;
+    color: #e11;
+    width: 250px;
+    height: 20px;
+}
+
+.cn-form-div-bttns-update-llista-apats {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+}
+
+.cn-bttn-cancelar-update-llista-apats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 100%;
+    background: #b44;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cn-bttn-cancelar-update-llista-apats:hover {
+    background: #e11;
+}
+
+.cn-bttn-cancelar-update-llista-apats:active {
+    transform: scale(0.9);
+}
+
+.cn-submit-update-llista-apats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cn-submit-update-llista-apats:hover {
+    background: #111;
+}
+
+.cn-submit-update-llista-apats:active {
+    transform: scale(0.9);
+}
+/* UPDATE FORM -Z */
 
 @media (max-width: 550px) {
     .cn-section-llista-apats {
         overflow: auto;
+    }
+
+    .cn-li-categoria-llista-apats {
+        justify-content: flex-start;
+    }
+
+    .cn-li-4-llista-apats {
+        justify-content: flex-start;
     }
 }
 

@@ -1,21 +1,26 @@
 import './FormCrearApat.css'
 import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+import { useAxiosPeticions } from './AxiosPeticions'
 
-export const FormCrearApat = ({alCrearApat}) => {
+export const FormCrearApat = () => {
+
+    const { crearApat } = useAxiosPeticions()
 
     const {register, handleSubmit, formState: {errors}, reset} = useForm()
 
     const peticioCrearApat = handleSubmit((data) => {
+        console.log(data)
         const nouApat = {
+            id: '0010',
             nom: data.nomDeApat,
-            categoria: parseInt(data.categoriaDeApat),
+            categoria: data.categoriaDeApat,
             descripcio: data.descripcioDeApat
         };
+        console.log(nouApat)
 
-        alCrearApat(nouApat); 
+        crearApat(nouApat)
         reset();
-        
     })
 
     const [esTancat, setEsTancat] = useState(false)
@@ -126,17 +131,11 @@ export const FormCrearApat = ({alCrearApat}) => {
                                     name={name_input_txt}
                                     type='text'
                                     { ... register('nomDeApat', {
-                                        required: true,
-                                        minLength: 3,
-                                        maxLength: 50
+                                        required: true
                                     })}
                                 />
                                 { errors.nomDeApat?.type === 'required' &&
-                                <span className={className_span}>El nom és obligatori</span> }
-                                { errors.nomDeApat?.type === 'minLength' &&
-                                <span className={className_span}>Mínim 3 caràcters</span> }
-                                { errors.nomDeApat?.type === 'maxLength' &&
-                                <span className={className_span}>Màxim 50 caràcters</span> }
+                                <span className={className_span}>El nom és requerit</span> }
                             </div>
                             <div className={className_div_lbl_select_form}>
                                 <label htmlFor={id_select}>{txtSelectCategoriaApat}</label>
@@ -150,7 +149,7 @@ export const FormCrearApat = ({alCrearApat}) => {
                                     <option value={valuePostres}>{txtPostres}</option>
                                 </select>
                                 { errors.categoriaDeApat?.type === 'required' &&
-                                <span className={className_span}>Has de seleccionar una categoria</span> }
+                                <span className={className_span}>La categoria és requerida</span> }
                             </div>
                         </div>
                         <div className={className_div_txtarea_form}>
@@ -165,16 +164,13 @@ export const FormCrearApat = ({alCrearApat}) => {
                                 cols={txtareaCols}
                                 { ... register('descripcioDeApat', {
                                     required: true,
-                                    minLength: 5,
-                                    maxLength: 100
+                                    maxLength: 120
                                 })}
                             />
                             { errors.descripcioDeApat?.type === 'required' &&
-                                <span className={className_span}>La descripció és obligatòria</span> }
-                                { errors.descripcioDeApat?.type === 'minLength' &&
-                                <span className={className_span}>Mínim 5 caràcters</span> }
-                                { errors.descripcioDeApat?.type === 'maxLength' &&
-                                <span className={className_span}>Màxim 100 caràcters</span> }
+                                <span className={className_span}>La descripció és requerida</span> }
+                            { errors.descripcioDeApat?.type === 'maxLength' && 
+                                <span className={className_span}>Max 120</span> }
                         </div>
                     </div>
                     <div className={className_div_bttn_form}>

@@ -1,9 +1,10 @@
 import './App.css'
+import { lazy, Suspense } from 'react'
 import { Router } from './Router.jsx'
 import { Route } from './Route.jsx'
-import Inici from './pagines/Inici.jsx'
+import Inici from './pagines/Inici.jsx' // Import estático
 import Apats from './pagines/Apats.jsx'
-import Equip from './pagines/Equip.jsx'
+const LazyEquip = lazy(() => import('./pagines/Equip.jsx')) // Import dinámico
 import Contacte from './pagines/Contacte.jsx'
 
 import Menus from './pagines/apats/Menus.jsx'
@@ -20,6 +21,7 @@ import SignUp from './pagines/SignUp.jsx'
 import Page404 from './pagines/Page404.jsx'
 import SearchPage from './pagines/Search.jsx'
 import Contrasenya from './pagines/Contrasenya.jsx'
+import BlackMarket from './pagines/BlackMarket.jsx'
 
 const rutesApp = [
   {
@@ -61,6 +63,14 @@ const rutesApp = [
   {
     cami: '/search/:query',
     Component: SearchPage
+  },
+  {
+    cami: '/:lang/login',
+    Component: Login
+  },
+  {
+    cami: '/blackmarket',
+    Component: BlackMarket
   }
 ]
 
@@ -68,13 +78,15 @@ function App() {
   const className_pagina = 'cn-pagina';
   return (
     <>
-      <div className={className_pagina}> 
-        <Router rutes={rutesApp} componentPerDefecte={Page404}>
-          <Route cami='/' Component={Inici} />
-          <Route cami='/apats' Component={Apats} />
-          <Route cami='/equip' Component={Equip} />
-          <Route cami='/contacte' Component={Contacte} />
-        </Router>
+      <div className={className_pagina}>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Router rutes={rutesApp} componentPerDefecte={Page404}>
+            <Route cami='/' Component={Inici} />
+            <Route cami='/apats' Component={Apats} />
+            <Route cami='/equip' Component={LazyEquip} />
+            <Route cami='/contacte' Component={Contacte} />
+          </Router>
+        </Suspense>
       </div>
     </>
   )

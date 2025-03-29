@@ -1,13 +1,14 @@
 import { useState, useEffect, Children } from 'react'
 import { ESDEVENIMENTS } from './consts.js'
 import { match } from 'path-to-regexp'
+import { camiActualAra } from './utils.js'
 
 export function Router ({ children, rutes = [], componentPerDefecte: ComponentPerDefecte = () => null }) {
-    const [camiActual, posarCamiActual] = useState(window.location.pathname)
+    const [camiActual, posarCamiActual] = useState(camiActualAra())
     
     useEffect(() => {
         const canviarUbicacio = () => {
-            posarCamiActual(window.location.pathname)
+            posarCamiActual(camiActualAra())
         }
         window.addEventListener(ESDEVENIMENTS.CAPENDAVANT, canviarUbicacio)
         window.addEventListener(ESDEVENIMENTS.CAPENRERE, canviarUbicacio)
@@ -27,7 +28,7 @@ export function Router ({ children, rutes = [], componentPerDefecte: ComponentPe
         return isRoute ? props : null
     })
 
-    const routesToUse = rutes.concat(routesFromChildren)
+    const routesToUse = rutes.concat(routesFromChildren).filter(Boolean)
 
     const Pagina = routesToUse.find(({ cami }) => {
         if (cami === camiActual) return true

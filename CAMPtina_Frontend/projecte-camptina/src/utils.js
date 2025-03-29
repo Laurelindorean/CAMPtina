@@ -1,0 +1,1 @@
+export const camiActualAra = () => window.location.pathname;

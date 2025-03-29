@@ -1,7 +1,31 @@
 import { Link } from '../Link'
 import logo_dark from '../assets/user_dark.png'
 
-export default function Login() {
+const i18n = {
+    ca: {
+        txt_user: 'Usuari',
+        txt_password: 'Contrasenya',
+        txt_submit: 'Accés'
+    },
+    es: {
+        txt_user: 'Usuario',
+        txt_password: 'Contraseña',
+        txt_submit: 'Acceso'
+    },
+    en: {
+        txt_user: 'User',
+        txt_password: 'Password',
+        txt_submit: 'Access'
+    }
+}
+
+const useI18n = (lang) => {
+    return i18n[lang] || i18n.en
+}
+
+export default function Login({ routeParams }) {
+
+    const i18n = useI18n(routeParams.lang ?? 'ca')
 
     const className_main = 'cn-main-login';
 
@@ -20,8 +44,8 @@ export default function Login() {
 
     const className_inputs = 'cn-inputs-login';
 
-    const txt_label_user = 'User';
-    const txt_label_password = 'Password';
+    const txt_label_user = i18n.txt_user;
+    const txt_label_password = i18n.txt_password;
 
     const id_input_user = 'id_user_login';
     const name_input_user = 'nameUser';
@@ -29,7 +53,7 @@ export default function Login() {
     const name_input_password = 'namePassword';
 
     const id_bttn_submit = 'id_access_login';
-    const value_bttn_submit = 'Access';
+    const value_bttn_submit = i18n.txt_submit;
 
     const className_span = 'span-form-login';
 
