@@ -21,7 +21,6 @@ export default function SignUp() {
 
     useEffect(() => {
         changeTermsConditions()
-        console.log('Hola')
     }, [agreeTC])
 
     const className_main = 'cn-main-signup';

@@ -10,9 +10,6 @@ export const Navegacio = () => {
     const className_article_usuari_ui_navegacio = 'cn-article-usuari-ui-navegacio';
     const className_article_usuari_imatge_navegacio = 'cn-article-usuari-imatge-navegacio';
 
-    //const className_div_usuari_ui_nom_edat_navegacio = 'cn-div-usuari-ui-nom-edat-navegacio';
-    //const className_div_usuari_ui_detalls_navegacio = 'cn-div-usuari-ui-detalls-navegacio';
-
     const className_img_logo = 'cn-img-logo';
     const className_img_usuari = 'cn-img-usuari';
 
@@ -20,10 +17,7 @@ export const Navegacio = () => {
     const className_num_li_3 = 'cn-num-li-3-navegacio';
 
     const txt_NOM_COMPLET = 'Albert Rodríguez';
-    //const txt_EDAT = '26';
     const txt_USUARI = 'albyroez';
-    //const txt_CC = '5 CC';
-    //const txt_EXP = 'JU';
 
     return (
         <>
