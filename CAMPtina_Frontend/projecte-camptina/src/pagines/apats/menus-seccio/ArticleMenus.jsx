@@ -1,11 +1,18 @@
 import { useState, useEffect } from 'react'
 import { RemoveMenu } from '../../../Icones.jsx'
 import './ArticleMenus.css'
+import { useAxiosPeticionsMenusApats } from '../../../services/AxiosPeticionsMenusApats.js'
 
 export const ArticleMenus = ({ nomArticle, categoriaNom, nomLlista, menuPerCategoria, llista, setLlista, removeLlista }) => {
 
-    const treureDelMenu = item => {
-        removeLlista(item)
+    const { eliminarMenuApats, carregarMenusComplet, carregarMenusApats } = useAxiosPeticionsMenusApats()
+
+    const treureDelMenu = async item => {
+        //removeLlista(item)
+        await eliminarMenuApats(1, item.id)
+        await carregarMenusComplet(1)
+        await carregarMenusApats()
+        removeLlista(item)   
     }
 
     /*useEffect(() => {

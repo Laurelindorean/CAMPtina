@@ -118,8 +118,8 @@ export default function Menus() {
         /* ================================================================================ ELIMINAR A- */
         /*for (let i = 0; i < menusIdApats.length; i++) {
             eliminarMenuApats(1, menusIdApats[i].apatId)
-        }*/
-        /*for (let i = 0; i < menusApats.apatsPerCategoria.PRIMER.length; i++) {
+        }
+        for (let i = 0; i < menusApats.apatsPerCategoria.PRIMER.length; i++) {
             eliminarMenuApats(1, menusApats.apatsPerCategoria.PRIMER[i].id)
         }
         for (let i = 0; i < menusApats.apatsPerCategoria.SEGON.length; i++) {
@@ -153,6 +153,7 @@ export default function Menus() {
     const ativarMenu = () => {
         setMenuActivedDesactived(!menuActivedDesactived)
     }
+
 
     return (
         <>
